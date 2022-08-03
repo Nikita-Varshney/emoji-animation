@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Emoji Animation.</title>
+</head>
+<style>
+    body{
+        height: 600px;
+        background: linear-gradient(rgb(16, 6, 43) ,  rgb(110, 83, 31), rgb(245, 240, 241) ) no-repeat;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .face{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: yellow;
+        box-shadow: inset -3px 0 0 4px rgba(255, 103, 0, 0.15);
+        position: relative;
+    }
+    .eye{
+        width: 60px;
+        height: 60px;
+        background-color: azure;
+        border-radius: 50%;
+        position: absolute;
+        top: 46px;
+        left: 24px;
+    }
+    .eye:last-child{
+        left: 110px;
+        top: 46px;
+    }
+    .eye::after{
+        content: '';
+        width: 24px;
+        height: 24px;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        animation: rolleyes 2s ease-in-out infinite;
+    }
+    .mouth {
+        width: 50px;
+        height: 20px;
+        background-color: brown;
+        border-radius: 20px;
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%);
+    }
+    @keyframes rolleyes {
+        10%{
+            transform: translate(-25px,-50%);
+        }
+        15%{
+            transform: translate(-28px,-20px);
+        }
+        20%,100%{
+            transform: translate(-50%,-30px);
+        }
+    }
+</style>
+<body>
+    <div class="emoji">
+        <div class="face">
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div class="mouth"></div>
+        </div>
+    </div>
+</body>
+</html>
